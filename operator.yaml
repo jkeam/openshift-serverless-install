@@ -19,7 +19,7 @@ metadata:
   name: serverless-operator
   namespace: openshift-serverless
 spec:
-  channel: stable 1
-  name: serverless-operator 2
-  source: redhat-operators 3
-  sourceNamespace: openshift-marketplace 4
+  channel: stable
+  name: serverless-operator
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace
