@@ -1,0 +1,33 @@
+apiVersion: template.openshift.io/v1
+kind: Template
+metadata:
+  name: serverless-example-template
+objects:
+- apiVersion: route.openshift.io/v1
+  kind: Route
+  metadata:
+    labels:
+      app.kubernetes.io/component: net-kourier
+      app.kubernetes.io/name: knative-serving
+      app.kubernetes.io/version: 1.5.0
+      networking.knative.dev/ingress-provider: kourier
+      serving.knative.openshift.io/ownerName: knative-serving
+      serving.knative.openshift.io/ownerNamespace: knative-serving
+    annotations:
+      haproxy.router.openshift.io/timeout: "600s"
+    name: serverless-example-route
+    namespace: knative-serving-ingress
+  spec:
+    host: event-delivery-serverless-example.apps.${CLUSTER_NAME}
+    port:
+      targetPort: http2
+    to:
+      kind: Service
+      name: kourier
+      weight: 100
+    wildcardPolicy: None
+parameters:
+- description: Cluster name
+  name: CLUSTER_NAME
+labels:
+  app: serverless-example

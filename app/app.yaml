@@ -1,0 +1,22 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: serverless-example
+
+---
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: event-delivery
+  namespace: serverless-example
+  annotations:
+    serving.knative.openshift.io/disableRoute: "true"
+spec:
+  template:
+    spec:
+      containers:
+        - image: quay.io/jkeam/hello-go:latest
+          env:
+            - name: RESPONSE
+              value: "Hello Serverless!"
