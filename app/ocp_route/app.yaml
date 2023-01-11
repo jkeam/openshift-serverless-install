@@ -10,6 +10,8 @@ kind: Service
 metadata:
   name: event-delivery
   namespace: serverless-example
+  annotations:
+    serving.knative.openshift.io/disableRoute: "true"
 spec:
   template:
     spec:
