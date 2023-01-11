@@ -39,6 +39,8 @@ poll_for_operator_creation() {
   done
 }
 
+echo 'the entire installation will take 5-10 minutes.'
+echo 'ignore errors around existing namespaces and warnings around missing annotations'
 echo 'installing operator...'
 oc create -f ./operator.yaml
 poll_for_operator_creation
