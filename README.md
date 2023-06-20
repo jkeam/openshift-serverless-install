@@ -28,7 +28,13 @@ permissions to do things like creating a namespace.  The script below will
 create a `serverless-example` namespace and install a Knative Service
 and publicly expose a route.
 
-There are two ways to install an example application, one using the default Knative Ingress (easier) and one where we disable this Knative Ingress and instead use an OpenShift Route (a bit more yaml).  The former is easier but the latter allows you to manage routes for these serverless application in the same way you are managing all other routes, including non-serverless applications.
+There are two ways to install an example application,
+one using the default Knative Ingress (easier) and
+one where we disable this Knative Ingress and instead
+use an OpenShift Route (a bit more yaml).  The former
+is easier but the latter allows you to manage routes
+for these serverless application in the same way you
+are managing all other routes, including non-serverless applications.
 
 ### Knative Ingress
 
@@ -41,3 +47,7 @@ There are two ways to install an example application, one using the default Knat
 ```shell
 ./deploy-app-with-ocp-route.sh
 ```
+
+## Docs
+
+1. [OpenShift Serverless](https://docs.openshift.com/serverless/1.29/about/about-serverless.html)
