@@ -50,5 +50,5 @@ oc create -f ./serving.yaml
 poll_for_serving_creation
 
 echo 'installing eventing...'
-oc apply -f ./eventing.yaml
+oc create -f ./eventing.yaml
 poll_for_eventing_creation
